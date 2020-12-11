@@ -4,6 +4,15 @@
 
 > Git hooks made easy
 
+Forked from husky 4.3.5 , Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...) , create .githooks-java folder and write husky-[hookname].java
+
+So Not having Node or NPM is not a problem
+install this package even from mvn 
+
+create folder on root of .git as .githooks-java and and java code for hooks needed in format husky-[hookname].java eg - you want to do stuff in java way / run java code use create .githooks-java/husky-pre-commit.java
+
+All hooks ->
+
 Husky can prevent bad `git commit`, `git push` and more 🐶 _woof!_
 
 **Announcement: Husky v5 has been published, to view v5 docs click [here](https://typicode.github.io/husky).**
@@ -28,8 +37,7 @@ npm install husky --save-dev
 {
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test",
+      "pre-push": "java .githooks-java/husky-pre-push",
       "...": "..."
     }
   }
