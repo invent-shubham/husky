@@ -1,7 +1,7 @@
 {
-  "name": "husky",
+  "name": "husky-java",
   "version": "4.3.5",
-  "description": "Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...)",
+  "description": "Forked from husky 4.3.5 , Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...) , create .githooks-java folder and write husky-[hookname].java",
   "bin": {
     "husky-run": "./bin/run.js",
     "husky-upgrade": "./lib/upgrader/bin.js"
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/typicode/husky.git"
+    "url": "git+https://github.com/invent-shubham/husky"
   },
   "keywords": [
     "git",
@@ -45,9 +45,9 @@
   "author": "Typicode <typicode@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/typicode/husky/issues"
+    "url": "https://github.com/invent-shubham/husky/issues"
   },
-  "homepage": "https://github.com/typicode/husky#readme",
+  "homepage": "https://github.com/invent-shubham/husky#readme",
   "dependencies": {
     "chalk": "^4.0.0",
     "ci-info": "^2.0.0",
@@ -103,13 +103,5 @@
       "json",
       "node"
     ]
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/husky"
-  },
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/husky"
   }
 }
