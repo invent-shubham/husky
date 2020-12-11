@@ -1,6 +1,6 @@
 {
   "name": "husky-java",
-  "version": "4.3.5",
+  "version": "4.3.51",
   "description": "Forked from husky 4.3.5 , Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...) , create .githooks-java folder and write husky-[hookname].java",
   "bin": {
     "husky-run": "./bin/run.js",
@@ -20,7 +20,7 @@
     "postpublish": "pinst --disable",
     "lint": "eslint . --ext .js,.ts --ignore-path .gitignore",
     "fix": "npm run lint -- --fix",
-    "doc": "markdown-toc -i README.md",
+    "doc": "markdown-toc -i README.md"
   },
   "repository": {
     "type": "git",

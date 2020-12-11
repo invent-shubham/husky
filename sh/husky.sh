@@ -9,20 +9,13 @@ command_exists () {
 }
 
 run_command () {
-  if command_exists "$1"; then
-    "$@" husky-run $hookName "$gitParams"
+  # if command_exists "$1"; then
+  #   "$@" husky-run $hookName "$gitParams"
 
-    exitCode="$?"
-    debug "$* husky-run exited with $exitCode exit code"
+  #   exitCode="$?"
+  #   debug "$* husky-run exited with $exitCode exit code"
 
-    if [ $exitCode -eq 127 ]; then
-      echo "Can't find Husky, skipping $hookName hook"
-      echo "You can reinstall it using 'npm install husky --save-dev' or delete this hook"
-    else
-      exit $exitCode
-    fi
-
-  else
+  # else
     #echo "Can't find $1 in PATH: $PATH"
     #echo "Skipping $hookName hook"
     if  [ -e "$(git rev-parse --show-toplevel)/.githooks-java/husky-$hookName.java" ]; then
@@ -30,7 +23,7 @@ run_command () {
       java $(git rev-parse --show-toplevel)/.githooks-java/husky-$hookName.java
     fi
     #exit 0
-  fi
+  # fi
 }
 
 hookIsDefined () {

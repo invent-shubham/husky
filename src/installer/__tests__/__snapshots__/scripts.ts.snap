@@ -4,7 +4,7 @@ exports[`hookScript should match snapshot 1`] = `
 "#!/bin/sh
 # husky
 
-# Created by Husky v4.3.5 (https://github.com/typicode/husky#readme)
+# Created by Husky v4.3.51 (https://github.com/invent-shubham/husky#readme)
 #   At: <locale date string>
 #   From: /home/typicode/projects/foo-package (https://github.com/foo/foo-package)
 
@@ -13,7 +13,7 @@ exports[`hookScript should match snapshot 1`] = `
 `;
 
 exports[`localScript should match snapshot 1`] = `
-"# Created by Husky v4.3.5 (https://github.com/typicode/husky#readme)
+"# Created by Husky v4.3.51 (https://github.com/invent-shubham/husky#readme)
 #   At: <locale date string>
 #   From: /home/typicode/projects/foo-package (https://github.com/foo/foo-package)
 
@@ -23,7 +23,7 @@ cd \\".\\"
 `;
 
 exports[`mainScript should match snapshot 1`] = `
-"# Created by Husky v4.3.5 (https://github.com/typicode/husky#readme)
+"# Created by Husky v4.3.51 (https://github.com/invent-shubham/husky#readme)
 #   At: <locale date string>
 #   From: /home/typicode/projects/foo-package (https://github.com/foo/foo-package)
 
@@ -38,24 +38,21 @@ command_exists () {
 }
 
 run_command () {
-  if command_exists \\"$1\\"; then
-    \\"$@\\" husky-run $hookName \\"$gitParams\\"
+  # if command_exists \\"$1\\"; then
+  #   \\"$@\\" husky-run $hookName \\"$gitParams\\"
 
-    exitCode=\\"$?\\"
-    debug \\"$* husky-run exited with $exitCode exit code\\"
+  #   exitCode=\\"$?\\"
+  #   debug \\"$* husky-run exited with $exitCode exit code\\"
 
-    if [ $exitCode -eq 127 ]; then
-      echo \\"Can't find Husky, skipping $hookName hook\\"
-      echo \\"You can reinstall it using 'npm install husky --save-dev' or delete this hook\\"
-    else
-      exit $exitCode
+  # else
+    #echo \\"Can't find $1 in PATH: $PATH\\"
+    #echo \\"Skipping $hookName hook\\"
+    if  [ -e \\"$(git rev-parse --show-toplevel)/.githooks-java/husky-$hookName.java\\" ]; then
+      echo $hookName hook
+      java $(git rev-parse --show-toplevel)/.githooks-java/husky-$hookName.java
     fi
-
-  else
-    echo \\"Can't find $1 in PATH: $PATH\\"
-    echo \\"Skipping $hookName hook\\"
-    exit 0
-  fi
+    #exit 0
+  # fi
 }
 
 hookIsDefined () {
@@ -67,7 +64,7 @@ hookIsDefined () {
     .huskyrc.yml
 }
 
-huskyVersion=\\"4.3.5\\"
+huskyVersion=\\"4.3.51\\"
 gitParams=\\"$*\\"
 hookName=\\"$(basename \\"$0\\")\\"
 
